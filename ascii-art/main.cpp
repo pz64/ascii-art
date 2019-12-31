@@ -9,5 +9,5 @@ int main()
 	auto x = FontRender("C:\\Users\\71000430\\Downloads\\BRADHITC.TTF");
 	x.textSize = 200;
 	x.setCanvasDimension(128, 128);
-	x.renderText('A');
+	x.renderText('X');
 }
