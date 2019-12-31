@@ -3,17 +3,11 @@
 
 #include <iostream>
 #include "image.h"
-
+#include "fontrender.h"
 int main()
 {   
-
-	auto img = Image("C:/Users/71000430/Documents/Projects/others/ascii-art/tests/photo_1.jpg");
-
-
-	img.grayscale();
-
-	img.resizeWrtHeight(123);
-	
-	img.write("C:/Users/71000430/Documents/Projects/others/ascii-art/tests/out.jpg");
-
+	auto x = FontRender("C:\\Users\\71000430\\Downloads\\BRADHITC.TTF");
+	x.textSize = 200;
+	x.setCanvasDimension(128, 128);
+	x.renderText('A');
 }

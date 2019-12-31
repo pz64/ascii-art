@@ -1,21 +1,23 @@
+#include "image.h"
 
-#define STB_IMAGE_IMPLEMENTATION
-#include "stb_image.h"
+#include <iostream>
+#include <utility>
 
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
 #include "stb_image_resize.h"
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
+#ifndef STB_IMAGE_WRITE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
-#include "stb_image_write.h"
+#endif
+#include "stb_image_write.h" 
 
-#include <iostream>
-#include <utility>
-#include <cstdio>
-
-#include "image.h"
 
 Image::~Image()
 {
+	std::cout << "end";
 	if (pixels)
 		stbi_image_free(pixels);
 }
@@ -57,8 +59,8 @@ void Image::resize(int newWidth, int newHeight)
 
 void Image::resize(float factor)
 {
-	int newHeight = height * factor;
-	int newWidth = width * factor;
+	int newHeight = (int) (height * factor);
+	int newWidth = (int) (width * factor);
 	resize(newWidth, newHeight);
 }
 
