@@ -4,10 +4,17 @@
 #include <iostream>
 #include "image.h"
 #include "fontrender.h"
+#include "pixelbrightness.h"
+
 int main()
-{   
-	auto x = FontRender("C:\\Users\\71000430\\Downloads\\BRADHITC.TTF");
-	x.textSize = 200;
-	x.setCanvasDimension(128, 128);
-	x.renderText('X');
+{
+
+	auto renderer = FontRender();
+	renderer.textSize = 24;
+	renderer.setCanvasDimension(32, 32);
+
+	auto calc = PixelBrightness("../outs/fonts/");
+	calc.setFontRenderer(&renderer);
+	calc.calculateBrightness(false);
+
 }

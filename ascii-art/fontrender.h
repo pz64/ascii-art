@@ -6,9 +6,9 @@ class FontRender
 {
 public:
 	int textSize;
-
-private:
 	int canvasWidth, canvasHeight;
+private:
+	
 	size_t size;
 	unsigned char* fontBuffer;
 	std::string fontPath;
@@ -19,10 +19,12 @@ public:
 	FontRender(std::string fontPath);
 	~FontRender();
 
-	void renderText(char text);
+	void renderTextToPng(char text, std::string outputPath);
+	void renderTextToBitmap(char text, unsigned char* bitmap);
 	void setCanvasDimension(int width, int height);
 
 private:
+	void renderText(char text, unsigned char* bitmap);
 	void init();
 	void allocate();
 };

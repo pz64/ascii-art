@@ -35,7 +35,7 @@ FontRender::~FontRender()
 	delete[] fontBuffer;
 }
 
-void FontRender::renderText(char text)
+void FontRender::renderText(char text, unsigned char* bitmap)
 {
 	stbtt_fontinfo info;
 
@@ -47,35 +47,39 @@ void FontRender::renderText(char text)
 		return;
 	}
 
-
-
 	float scale = stbtt_ScaleForPixelHeight(&info, textSize);
 
 	int x1, y1, x2, y2;
 	stbtt_GetCodepointBitmapBox(&info, text, scale, scale, &x1, &y1, &x2, &y2);
 
-	int width = canvasWidth;
-	int height = canvasHeight;
 
 	int fWidth = x2 - x1;
 	int fHeight = y2 - y1;
 
-	if (width < fWidth || height < fHeight)
+	if (canvasWidth < fWidth || canvasHeight < fHeight)
 	{
-		width = fWidth;
-		height = fHeight;
+		canvasWidth = fWidth;
+		canvasHeight = fHeight;
 	}
 
-	auto* bitmap = new unsigned char[width * height];
 
-	for (auto* i = bitmap; i != bitmap + width * height; ++i)
+	for (auto* i = bitmap; i != bitmap + canvasWidth * canvasHeight; ++i)
 		*i = 0;
 
-	stbtt_MakeCodepointBitmap(&info,bitmap , fWidth, fHeight, width, scale, scale, text);
+	stbtt_MakeCodepointBitmap(&info,bitmap , fWidth, fHeight, canvasWidth, scale, scale, text);
+}
 
-	stbi_write_png("../outs/fonts/font.png", width, height, 1, bitmap, width);
-
+void FontRender::renderTextToPng(char text, std::string outputPath)
+{
+	unsigned char* bitmap = new unsigned char[canvasWidth * canvasHeight];
+	renderText(text, bitmap);
+	stbi_write_png(outputPath.c_str(), canvasWidth, canvasHeight, 1, bitmap, canvasWidth);
 	delete[] bitmap;
+}
+
+void FontRender::renderTextToBitmap(char text, unsigned char* bitmap)
+{
+	renderText(text, bitmap);
 }
 
 void FontRender::setCanvasDimension(int width, int height)

@@ -152,11 +152,13 @@
     <ClCompile Include="fontrender.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="pixelbrightness.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="asciiart.h" />
     <ClInclude Include="fontrender.h" />
     <ClInclude Include="image.h" />
+    <ClInclude Include="pixelbrightness.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="stb_image_resize.h" />
     <ClInclude Include="stb_image_write.h" />
