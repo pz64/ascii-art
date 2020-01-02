@@ -11,10 +11,10 @@ int main()
 
 	auto renderer = FontRender();
 	renderer.textSize = 24;
-	renderer.setCanvasDimension(32, 32);
+	renderer.setCanvasDimension(32,32);
 
-	auto calc = PixelBrightness("../outs/fonts/");
+	auto calc = PixelBrightness("../out/fonts/");
 	calc.setFontRenderer(&renderer);
-	calc.calculateBrightness(false);
+	calc.calculateBrightness(true);
 
 }

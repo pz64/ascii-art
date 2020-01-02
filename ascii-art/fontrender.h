@@ -8,7 +8,7 @@ public:
 	int textSize;
 	int canvasWidth, canvasHeight;
 private:
-	
+
 	size_t size;
 	unsigned char* fontBuffer;
 	std::string fontPath;
@@ -22,6 +22,7 @@ public:
 	void renderTextToPng(char text, std::string outputPath);
 	void renderTextToBitmap(char text, unsigned char* bitmap);
 	void setCanvasDimension(int width, int height);
+	void calculateDimensions(char text, int& outWidth, int& outHeight);
 
 private:
 	void renderText(char text, unsigned char* bitmap);

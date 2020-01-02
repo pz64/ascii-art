@@ -2,17 +2,19 @@
 #include <string>
 #include <vector>
 #include "fontrender.h"
+
 class PixelBrightness
 {
-	
 
 private:
 	FontRender* renderer;
+	std::vector<std::pair<char, float>> brightness;
 public:
 	std::string workingDirectory;
-	std::vector<std::pair<char, float>> brightness;
+	char BRIGHTNESS[256];
 
 private:
+	void stretchBrightnessArray();
 public:
 	PixelBrightness();
 	PixelBrightness(std::string workingDirectory)

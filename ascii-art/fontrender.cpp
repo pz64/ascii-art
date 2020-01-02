@@ -1,9 +1,8 @@
 #include "fontrender.h"
 
-#include "stb_image_write.h"
-
 #define STB_TRUETYPE_IMPLEMENTATION 
 #include "stb_truetype.h" 
+#include "stb_image_write.h"
 #include <fstream>
 #include <iostream>
 
@@ -58,19 +57,23 @@ void FontRender::renderText(char text, unsigned char* bitmap)
 
 	if (canvasWidth < fWidth || canvasHeight < fHeight)
 	{
-		canvasWidth = fWidth;
-		canvasHeight = fHeight;
+		std::cerr << "Input dimension values are lower than required values of (" << fWidth
+			<< "x" << fHeight
+			<< ").\nCall `calculateDimensions(char text)` and initialize `unsigned char bitmap` with updated `canvasWidth` and `canvasHeight`\nbefore calling this function.\n\n";
+		return;
 	}
-
 
 	for (auto* i = bitmap; i != bitmap + canvasWidth * canvasHeight; ++i)
 		*i = 0;
 
-	stbtt_MakeCodepointBitmap(&info,bitmap , fWidth, fHeight, canvasWidth, scale, scale, text);
+	stbtt_MakeCodepointBitmap(&info, bitmap, fWidth, fHeight, canvasWidth, scale, scale, text);
 }
 
 void FontRender::renderTextToPng(char text, std::string outputPath)
 {
+	int w = 0, h = 0;
+	calculateDimensions(text, w, h);
+
 	unsigned char* bitmap = new unsigned char[canvasWidth * canvasHeight];
 	renderText(text, bitmap);
 	stbi_write_png(outputPath.c_str(), canvasWidth, canvasHeight, 1, bitmap, canvasWidth);
@@ -86,6 +89,26 @@ void FontRender::setCanvasDimension(int width, int height)
 {
 	canvasWidth = width;
 	canvasHeight = height;
+}
+
+void FontRender::calculateDimensions(char text, int& outWidth, int& outHeight)
+{
+	stbtt_fontinfo info;
+	auto offset = stbtt_GetFontOffsetForIndex(fontBuffer, 0);
+	if (!stbtt_InitFont(&info, fontBuffer, offset))
+	{
+		cantReadFont = true;
+		std::cerr << "Unable to load font!";
+		return;
+	}
+
+	float scale = stbtt_ScaleForPixelHeight(&info, textSize);
+
+	int x1, y1, x2, y2;
+	stbtt_GetCodepointBitmapBox(&info, text, scale, scale, &x1, &y1, &x2, &y2);
+
+	outWidth = x2 - x1;
+	outHeight = y2 - y1;
 }
 
 void FontRender::allocate()
