@@ -89,7 +89,7 @@ int main()
     };
 
     Image plant("../out/photo_1.jpg");
-    plant.resizeWrtWidth(200);
+    plant.resizeWrtWidth(80);
 
     ASCIIArt art(&plant,BRIGHTNESS);
     art.generateArt();
