@@ -68,7 +68,7 @@ int main()
         GENERATING ASCII ART.
     */
 
-    /*char BRIGHTNESS[256] = {
+    char BRIGHTNESS[256] = {
 
         32,32,32,32,32,32,32,46,46,46,46,46,46,46,96,96,
         96,96,96,96,45,45,45,45,45,45,39,39,39,39,39,39,
@@ -92,6 +92,6 @@ int main()
     plant.resizeWrtWidth(300);
 
     ASCIIArt art(&plant,BRIGHTNESS);
-    art.generateArt();*/
+    art.generateArt();
 
 }

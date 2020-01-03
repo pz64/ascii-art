@@ -46,12 +46,12 @@ with image width 80
 with image width 300
 <img src="./out/screenshot_2.jpg" />
 
-# Where to get BRIGHTNESS[256] ??
-Run this code seperately for BRIGHTNESS[256] array. This array is needed to be generated only if brightness for new font is to be found.
+# Where to get BRIGHTNESS [256] ??
+Run this code seperately for BRIGHTNESS [256] array. This array is needed to be generated only if brightness for new font is to be found.
 In that case 
 ```cpp
 
-    FontRender renderer("path to font");
+    FontRender renderer("path to .ttf file");
     PixelBrightness brightness;
     brightness.setFontRenderer(&renderer);
     brightness.calculateBrightness();
