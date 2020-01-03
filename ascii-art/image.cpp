@@ -15,7 +15,6 @@
 
 Image::~Image()
 {
-	std::cout << "end";
 	if (pixels)
 		stbi_image_free(pixels);
 }
@@ -50,6 +49,7 @@ void Image::resize(int newWidth, int newHeight)
 	if (result == 1) {
 		width = newWidth;
 		height = newHeight;
+		size = width * height * channels;
 	}
 	else std::cerr << "Unable to resize!";
 
@@ -57,8 +57,8 @@ void Image::resize(int newWidth, int newHeight)
 
 void Image::resize(float factor)
 {
-	int newHeight = (int) (height * factor);
-	int newWidth = (int) (width * factor);
+	int newHeight = (int)(height * factor);
+	int newWidth = (int)(width * factor);
 	resize(newWidth, newHeight);
 }
 

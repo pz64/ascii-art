@@ -22,15 +22,21 @@ void PixelBrightness::stretchBrightnessArray()
 		}
 	}
 
-	std::cout << "Feed this array to ascii-art." << std::endl;
-	std::cout << "char BRIGHTNESS[] = { ";
+	std::cout << "Feed this array to ascii-art. Only generate this PixelBrightness Array if new font is added." << std::endl;
+	std::cout << "\n\nchar BRIGHTNESS[256] = {"<<std::endl;
 
 	for (int i = 0; i < 255; ++i)
 	{
+		if (i % 16 == 0)
+			std::cout << std::endl << "\t";
 		std::cout << int(BRIGHTNESS[i]) << ",";
 	}
-	std::cout << int(BRIGHTNESS[255]) << "};";
+	std::cout << int(BRIGHTNESS[255])<< std::endl<< "};\n\n";
 
+}
+
+PixelBrightness::~PixelBrightness()
+{
 }
 
 void PixelBrightness::setFontRenderer(FontRender* fontRenderer)
@@ -95,33 +101,4 @@ void PixelBrightness::calculateBrightness(bool writeImagesToDirectory)
 		});
 
 	stretchBrightnessArray();
-
-	//std::cout << "ASCII" << "\t" << "CHAR" << "\t" << "BRIGHTNESS" << std::endl;
-	//for (auto i : brightness)
-	//{
-	//	std::cout << int(i.first) << "\t" << i.first << "\t" << i.second << std::endl;
-	//}
-
-	//std::vector<int> pArray;
-	//for (int i = 0; i < brightness.size(); ++i)
-	//{
-	//	auto percent = (brightness[i].second / 8500) * 200;
-	//	pArray.push_back(percent);
-	//}
-
-	//for (int i = 0; i < pArray.size(); ++i)
-	//{
-	//	for (int j = 0; j < pArray[i]; ++j)
-	//	{
-	//		std::cout << " ";
-	//	}
-
-	//	if (i > 0 && i < pArray.size() - 1) {
-	//		if (pArray[i - 1] < pArray[i])
-	//			std::cout << ".  " <<brightness[i].first  <<  std::endl;
-	//		else if (pArray[i - 1] == pArray[i])
-	//			std::cout << ":  " << brightness[i].first << std::endl;
-	//	}
-
-	//}
 }

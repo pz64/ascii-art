@@ -16,6 +16,7 @@ public:
 private:
 	void stretchBrightnessArray();
 public:
+	~PixelBrightness();
 	PixelBrightness();
 	PixelBrightness(std::string workingDirectory)
 		:workingDirectory(workingDirectory) {}
