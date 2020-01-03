@@ -8,29 +8,28 @@ void PixelBrightness::stretchBrightnessArray()
 {
 
 	int multiplier[95] = {
-		5,5,4,4,4,3,3,3,3,3,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
-	   ,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,4,4,4,5,5
+		6,6,5,5,5,4,4,4,4,3,3,3,3,3,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+		0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,3,3,3,3,3,4,4,4,4,5,5,5,6,6
 	};
 
 	int x = 0;
-	for (int i = 0; i < 96; ++i)
+	for (int i = 0; i < 95; ++i)
 	{
-		std::cout << multiplier[i] << " :" << std::endl;
 		for (int j = 0; j < multiplier[i] + 1; ++j)
 		{
-			std::cout << "x";
 			BRIGHTNESS[x] = brightness[i].first;
 			x += 1;
 		}
-		std::cout << std::endl;
 	}
 
-	//std::cout << x;
+	std::cout << "Feed this array to ascii-art." << std::endl;
+	std::cout << "char BRIGHTNESS[] = { ";
 
-	/*for (int i = 0; i < 256; ++i)
+	for (int i = 0; i < 255; ++i)
 	{
-		std::cout <<i << ": "<< int(BRIGHTNESS[i]) << std::endl;
-	}*/
+		std::cout << int(BRIGHTNESS[i]) << ",";
+	}
+	std::cout << int(BRIGHTNESS[255]) << "};";
 
 }
 
