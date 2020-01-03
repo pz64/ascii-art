@@ -35,7 +35,15 @@ ascii-art example :
     ASCIIArt art(&plant,BRIGHTNESS);
     art.generateArt();
 ```
+## input
+<img src="./out/photo_1.jpg" />
 
 ## output
+with image width 80
 <img src="./out/screenshot_1.jpg" />
+
+## output
+with image width 300
+<img src="./out/screenshot_2.jpg" />
+
 
