@@ -44,7 +44,12 @@ void PixelBrightness::setFontRenderer(FontRender* fontRenderer)
 	renderer = fontRenderer;
 }
 
-void PixelBrightness::calculateBrightness(bool writeImagesToDirectory)
+void PixelBrightness::calculateBrightness()
+{
+	calculateBrightness_Internal(false);
+}
+
+void PixelBrightness::calculateBrightness_Internal(bool writeImagesToDirectory)
 {
 	if (!renderer)
 	{

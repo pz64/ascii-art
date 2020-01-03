@@ -51,7 +51,6 @@ void FontRender::renderText(char text, unsigned char* bitmap)
 	int x1, y1, x2, y2;
 	stbtt_GetCodepointBitmapBox(&info, text, scale, scale, &x1, &y1, &x2, &y2);
 
-
 	int fWidth = x2 - x1;
 	int fHeight = y2 - y1;
 
@@ -59,7 +58,7 @@ void FontRender::renderText(char text, unsigned char* bitmap)
 	{
 		std::cerr << "Input dimension values are lower than required values of (" << fWidth
 			<< "x" << fHeight
-			<< ").\nCall `calculateDimensions(char text)` and initialize `unsigned char bitmap` with updated `canvasWidth` and `canvasHeight`\nbefore calling this function.\n\n";
+			<< ").\nCall `calculateDimensions()`.\n\n";
 		return;
 	}
 
@@ -74,6 +73,11 @@ void FontRender::renderTextToPng(char text, std::string outputPath)
 	int w = 0, h = 0;
 	calculateDimensions(text, w, h);
 
+	if (canvasWidth < w || canvasHeight < h)
+	{
+		canvasWidth = w;
+		canvasHeight = h;
+	}
 	unsigned char* bitmap = new unsigned char[canvasWidth * canvasHeight];
 	renderText(text, bitmap);
 	stbi_write_png(outputPath.c_str(), canvasWidth, canvasHeight, 1, bitmap, canvasWidth);

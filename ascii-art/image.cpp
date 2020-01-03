@@ -51,7 +51,7 @@ void Image::resize(int newWidth, int newHeight)
 		height = newHeight;
 		size = width * height * channels;
 	}
-	else std::cerr << "Unable to resize!";
+	else std::cerr << "Unable to resize Image!";
 
 }
 
