@@ -37,5 +37,5 @@ ascii-art example :
 ```
 
 ## output
-<img src="../out/screenshot_1.jpg" />
+<img src="./out/screenshot_1.jpg" />
 
