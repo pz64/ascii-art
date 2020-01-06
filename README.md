@@ -4,6 +4,12 @@ ASCIIArt Generator class generate ascii-art for input image.
 
 [written in c++, microsoft visualstudio 2019 Comunity Edition.]
 
+used [stb](https://github.com/nothings/stb) lib for reading, writing, resizing image and reading font files.
+
+Example image used is taken from [unsplash.com](https://unsplash.com/photos/70l1tDAI6rM) submitted by Chris Lee.
+
+
+
 ascii-art example :
 
 
