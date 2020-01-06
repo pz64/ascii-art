@@ -42,7 +42,7 @@ int main()
 ## output
 with image width 80
 
-```cpp
+```
 _":~;^!~"""__-,,,''-":""__;S/~~=|1a/gQQQQQQQQQQWA',-5S=E]!]a+_`nP,!(F+<||=;!~;^;
 _-_"":::"""_-_-,',,''-:~::|C|^r/=:(MWQQQQQQQQQQQ@u-,;#yF=|?j+_``;:=9{?SOh|!;;^;!
 "-------------~Tx-,,,',_:;;r<]v;^=oQQQQQQQQQQQQQWp:|-<q):=?j+_``_;>i?kQWQp[^;;;!
