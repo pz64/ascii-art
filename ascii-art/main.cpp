@@ -9,7 +9,8 @@ int main()
 {
 	/*
 	uses default font:
-	"./fonts/Roboto-Regular.ttf
+	"./fonts/RobotoMono-Regular.ttf
+	currently only support mono fonts.
 	*/
 	FontRender robotoDefault;
 
@@ -17,5 +18,6 @@ int main()
 	plant.resizeWrtWidth(80);
 
 	ASCIIArt art(&plant, &robotoDefault);
+	art.outputPath = "../out/art.txt";
 	art.generateArt();
 }

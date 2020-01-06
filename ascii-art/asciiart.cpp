@@ -1,6 +1,7 @@
 #include "asciiart.h"
 
-#include<iostream>
+#include <iostream>
+#include <fstream>
 #include <cstring>
 #include "image.h"
 #include "fontrender.h"
@@ -24,12 +25,13 @@ void ASCIIArt::generateArt(bool inverse)
 		return;
 	}
 
-	PixelBrightness brightness;
-	brightness.setFontRenderer(renderer);
-	brightness.calculateBrightness();
+	std::ofstream fout;
+	if (!outputPath.empty())
+		fout.open(outputPath);
 
-	memcpy(BRIGHTNESS, brightness.BRIGHTNESS, 256);
-
+	PixelBrightness calc;
+	calc.setFontRenderer(renderer);
+	calc.calculateBrightness();
 
 	image->grayscale();
 
@@ -39,15 +41,22 @@ void ASCIIArt::generateArt(bool inverse)
 	for (auto* i = data; i != data + image->size; i += image->channels, ++index)
 	{
 		if (index % image->width == 0)
+		{
+			fout << std::endl;
 			std::cout << std::endl;
+		}
 		if (inverse)
 		{
-			std::cout << BRIGHTNESS[255 - *i];
+			fout << calc.BRIGHTNESS[255 - *i];
+			std::cout << calc.BRIGHTNESS[255 - *i];
 		}
 		else
 		{
-			std::cout << BRIGHTNESS[*i];
+			fout << calc.BRIGHTNESS[*i];
+			std::cout << calc.BRIGHTNESS[*i];
 		}
 	}
 
+	if (fout.is_open())
+		fout.close();
 }

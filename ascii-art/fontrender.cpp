@@ -18,7 +18,7 @@ void FontRender::init()
 FontRender::FontRender()
 {
 	init();
-	fontPath = "../fonts/Roboto-Regular.ttf";
+	fontPath = "../fonts/RobotoMono-Regular.ttf";
 	allocate();
 }
 

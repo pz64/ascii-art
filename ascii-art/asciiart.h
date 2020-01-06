@@ -1,19 +1,22 @@
 #pragma once
+
+#include <string>
 /**
 	The [ASCIIArt] class
 */
 class ASCIIArt
 {
 private:
-	char BRIGHTNESS[256];
+	
 	class FontRender* renderer;
 	class Image* image;
 public:
-	ASCIIArt(Image* image, FontRender* renderer);
-
-
+	std::string outputPath;
+	
 private:
 public:
+	ASCIIArt(Image* image, FontRender* renderer);
+
 	/*
 		This function generates the ascii art on the console.
 		set [inverse] to true if the image pixels need to be inverted while generating art.

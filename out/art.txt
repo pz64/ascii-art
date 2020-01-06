@@ -1,47 +1,4 @@
-# ascii-art-generator
 
-ASCIIArt Generator class generate ascii-art for input image.
-
-Only supported on mono type fonts because the font padding calculation is not yet implemented.
-
-[written in c++, microsoft visualstudio 2019 Comunity Edition.]
-
-used [stb](https://github.com/nothings/stb) lib for reading, writing, resizing image and reading font files.
-
-Example image used is taken from [unsplash.com](https://unsplash.com/photos/70l1tDAI6rM) submitted by Chris Lee.
-
-ascii-art example :
-
-
-```cpp
-#include "image.h"
-#include "fontrender.h"
-#include "pixelbrightness.h"
-#include "asciiart.h"
-
-int main()
-{
-	/*
-	uses default font:
-	"./fonts/RobotoMono-Regular.ttf
-	currently only support mono fonts.
-	*/
-	FontRender robotoDefault;
-
-	Image plant("../out/photo_1.jpg");
-	plant.resizeWrtWidth(80);
-
-	ASCIIArt art(&plant, &robotoDefault);
-	art.outputPath = "../out/art.txt";
-	art.generateArt();
-}
-```
-## input
-<img src="./out/photo_1.jpg" />
-
-## output
-with image width 80
-'''
 _":~;^!~"""__-,,,''-":""__;S/~~=|1a/gQQQQQQQQQQWA',-5S=E]!]a+_`nP,!(F+<||=;!~;^;
 _-_"":::"""_-_-,',,''-:~::|C|^r/=:(MWQQQQQQQQQQQ@u-,;#yF=|?j+_``;:=9{?SOh|!;;^;!
 "-------------~Tx-,,,',_:;;r<]v;^=oQQQQQQQQQQQQQWp:|-<q):=?j+_``_;>i?kQWQp[^;;;!
@@ -101,8 +58,3 @@ $$@0@@&O?^=^!~:"""""__"_--~^!"9&gHPFzvlR$&],,,,',~/"'',,'`,>#M@@@&$$M@QWQQQQQQQQ
 &&&&&&&&&&&&&&&@@@&&0d*<^=^;;R$$9::_-<O$$$QWWW$&&&&&$&S2*^~1G&&C;~""":!(GMc;!::!
 &&&&&&&&&&&&&&@@@&&&&@bi/r^;rG$M/~~:]O$$$$$QWWQ$&&&&&&$&@G##N&&0o=:""":!v#b[^!:"
 &&&&&&&&&&&&&@@@&&&&&&&0S%qqb&0k]n7R0$$$$$$$QWWQ$&&&&&&&&&$$&&&&@8w=:::::;[I*=;~
-'''
-
-## output
-with image width 300
-<img src="./out/screenshot_2.jpg" />
