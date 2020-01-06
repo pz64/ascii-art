@@ -2,10 +2,12 @@
 
 #include<iostream>
 #include <cstring>
+#include "image.h"
+#include "fontrender.h"
+#include "pixelbrightness.h"
 
-ASCIIArt::ASCIIArt(Image* image, char brightness[256]) :image(image)
+ASCIIArt::ASCIIArt(Image* image, FontRender* renderer) :image(image),renderer(renderer)
 {
-	memcpy(BRIGHTNESS, brightness, 256);
 }
 
 void ASCIIArt::generateArt(bool inverse)
@@ -15,6 +17,18 @@ void ASCIIArt::generateArt(bool inverse)
 		std::cerr << "Image can't be null. Are you kidding me?!";
 		return;
 	}
+
+	if (!renderer)
+	{
+		std::cerr << "Font Renderer can't be null.!";
+		return;
+	}
+
+	PixelBrightness brightness;
+	brightness.setFontRenderer(renderer);
+	brightness.calculateBrightness();
+	memcpy(BRIGHTNESS, brightness.BRIGHTNESS, 256);
+
 
 	image->grayscale();
 

@@ -1,7 +1,4 @@
 #pragma once
-
-#include "image.h"
-
 /**
 	The [ASCIIArt] class
 */
@@ -9,9 +6,11 @@ class ASCIIArt
 {
 private:
 	char BRIGHTNESS[256];
-	Image* image;
+	class FontRender* renderer;
+	class Image* image;
 public:
-	ASCIIArt(Image* image, char brightness[256]);
+	ASCIIArt(Image* image, FontRender* renderer);
+
 
 private:
 public:

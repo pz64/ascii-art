@@ -21,7 +21,7 @@ void PixelBrightness::stretchBrightnessArray()
 			x += 1;
 		}
 	}
-
+	/*
 	std::cout << "Feed this array to ascii-art. Only generate this PixelBrightness Array if new font is added." << std::endl;
 	std::cout << "\n\nchar BRIGHTNESS[256] = {"<<std::endl;
 
@@ -32,7 +32,7 @@ void PixelBrightness::stretchBrightnessArray()
 		std::cout << int(BRIGHTNESS[i]) << ",";
 	}
 	std::cout << int(BRIGHTNESS[255])<< std::endl<< "};\n\n";
-
+	*/
 }
 
 PixelBrightness::~PixelBrightness()
