@@ -7,15 +7,15 @@
 
 int main()
 {
-    /*
-    uses default font:
-    "./fonts/Roboto-Regular.ttf
-    */
-    FontRender robotoDefault;
+	/*
+	uses default font:
+	"./fonts/Roboto-Regular.ttf
+	*/
+	FontRender robotoDefault;
 
-    Image plant("../out/photo_1.jpg");
-    plant.resizeWrtWidth(80);
+	Image plant("../out/photo_1.jpg");
+	plant.resizeWrtWidth(80);
 
-    ASCIIArt art(&plant,&robotoDefault);
-    art.generateArt();
+	ASCIIArt art(&plant, &robotoDefault);
+	art.generateArt();
 }

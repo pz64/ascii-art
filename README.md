@@ -1,6 +1,6 @@
 # ascii-art-generator
 
-ASCIIArt Generator class generate ascii-art for imput image.
+ASCIIArt Generator class generate ascii-art for input image.
 
 [written in c++, microsoft visualstudio 2019 Comunity Edition.]
 

@@ -6,7 +6,7 @@
 #include "fontrender.h"
 #include "pixelbrightness.h"
 
-ASCIIArt::ASCIIArt(Image* image, FontRender* renderer) :image(image),renderer(renderer)
+ASCIIArt::ASCIIArt(Image* image, FontRender* renderer) :image(image), renderer(renderer)
 {
 }
 
@@ -27,6 +27,7 @@ void ASCIIArt::generateArt(bool inverse)
 	PixelBrightness brightness;
 	brightness.setFontRenderer(renderer);
 	brightness.calculateBrightness();
+
 	memcpy(BRIGHTNESS, brightness.BRIGHTNESS, 256);
 
 
