@@ -2,9 +2,9 @@
 
 ASCIIArt Generator class generate ascii-art for input image.
 
-Only supported on mono type fonts because the font padding calculation is not yet implemented.
+Only supported on mono-type fonts because the font padding calculation isn't yet implemented.
 
-[written in c++, microsoft visualstudio 2019 Comunity Edition.]
+[written in c++, microsoft visualstudio 2019 Community Edition.]
 
 used [stb](https://github.com/nothings/stb) lib for reading, writing, resizing image and reading font files.
 

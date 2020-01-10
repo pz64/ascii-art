@@ -6,10 +6,6 @@
 /**
 	[PixelBrightness] class generate the [BRIGHTNESS] array input for given font.
 	the [BRIGHTNESS] array otput is input for the [ASCIIArt] class to draw.
-
-	Note:
-	This class doesn't need to be called onn each run. Once the brightness array is obtained via console output,
-	copy it to actual code . This array wont change for this font. Only generate new array if new font is input.
 */
 class PixelBrightness
 {
