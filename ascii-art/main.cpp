@@ -15,6 +15,8 @@ int main()
 	FontRender robotoDefault;
 
 	Image plant("../out/photo_1.jpg");
+
+	/*Change width for larger resolution*/
 	plant.resizeWrtWidth(80);
 
 	ASCIIArt art(&plant, &robotoDefault);
